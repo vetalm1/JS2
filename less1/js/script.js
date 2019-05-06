@@ -1,4 +1,4 @@
-const goods= [
+﻿const goods= [
     { title: "Shirt", price: 150, img: 1 },
     { title: "Soks", price: 50, img: 2 },
     { title: "Jacket", price: 350, img: 3 },
@@ -31,7 +31,7 @@ const renderGoodsList = (list) => {
 renderGoodsList(goods);
 // *Сейчас после каждого товара на странице выводится запятая. Из-за чего это происходит? Как это исправить?
 // Это происходит т.к. goodsList сформирован в виде массива.
-// Можно воспользоваться .join('') например или forEach..
+// Можно воспользоваться .join('') например, или forEach..
 
 
 let b='';
