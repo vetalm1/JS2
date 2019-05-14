@@ -50,21 +50,35 @@ class GoodsList {
         document.querySelector('.goods-list2').innerHTML = 
         '<h3>Cуммарная стоимость всех товаров = '+summ+' $<h3>';
     }
+    calcPrice() { // альтернативный вариант реализации summGoods
+        return this.goods.reduce((sum, curr) => {
+            if (!curr.price) return sum; // это частый способ проверки
+            return sum+curr.price
+        }, 0)
+    }
 }
 
-class BasketItem {
-    constructor(title, price) {
-        this.title = title;
-        this.price = price;
+class Cart  extends GoodsList {
+    add(){}
+    update(newCount){
+        this.goods[index].setCount(newCount);
     }
-    render() {}
+    remove(index){
+        this.goods.splice(index, 1);
+    }
 }
-class BasketList {
-    constructor(){}
-    addGood(){}
-    removeGood(){}
-    selectedGoods(){}
-    render(){}
+
+class CartItem extends GoodsItem {
+    constructor(title="on design", price="on design", img="0") {
+        super();
+        let count = 1;
+    }
+    getCount() {
+        return count;
+    }
+    setCount(newCount) {
+        count=newCount;
+    }
 }
 
 const list = new GoodsList();
