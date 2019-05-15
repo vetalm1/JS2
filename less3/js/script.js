@@ -82,6 +82,7 @@ class Cart  extends GoodsList {
     }
 }
 
+
 class CartItem extends GoodsItem {
     constructor(title="on design", price="on design", img="0") {
         super();
