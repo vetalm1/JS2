@@ -10,11 +10,17 @@
 </head>
 <body>
     <header class="main-menu">
-        <button class="cart-button">Корзина</button>    
+        <form class="search-form">
+           <input class="goods-search" type="text">
+           <button type="submit" class="search-button">Искать</button>
+        </form>    
+        <button class="cart-button">Корзина (0)</button>    
     </header>
     <main>
         <div class="goods-list"></div> <br>
-
+        <h2 class="cart-title">Корзина (список товаров к покупке:)</h2>
+        <span>Итого на сумму: </span><span class="cart-summ"></span>
+        <div class="cart-list"></div>
     </main>
 <script src="js/script.js"></script>
 </body>
