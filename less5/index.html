@@ -16,7 +16,7 @@
             <button class="cart-button" @click="cartrender='true'">Корзина ({{counter}})</button>    
         </header>
         <main>
-            <div v-if="goods===[]">Нет данных</div>
+            <div v-if="goods==[]">Нет данных</div>
             <div class="goods-list">
                 <div class="goods-item" v-for="good in filteredGoods">
                     <img :src="'img/'+good.id_product+'.jpg'">
