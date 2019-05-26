@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--не забывай долбаный вьюпорт, нужен при адаптиве-->
+    <title>eShop</title>
+    <link rel="stylesheet" href="css/normalize.css"> <!--сначала нормалайз-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <header class="main-menu">
+            <input class="goods-search" type="text" v-model="searchLine">
+            <button class="search-button" @click="filterGoods(searchLine)" >Искать</button>    
+            <button class="cart-button" @click="cartrender='true'">Корзина ({{counter}})</button>    
+        </header>
+        <main>
+            <div v-if="goods===[]">Нет данных</div>
+            <div class="goods-list">
+                <div class="goods-item" v-for="good in filteredGoods">
+                    <img :src="'img/'+good.id_product+'.jpg'">
+                    <h3>{{ good.product_name }}</h3>
+                    <p>{{ good.price }}</p>
+                    <ol>
+                      <li>Porro</li>
+                      <li>Тemo</li>
+                    </ol>
+                    <button @click="cartAdd(good.product_name, good.price, good.id_product)">Buy</button>
+                </div>
+            </div> 
+            <h2 class="cart-title" v-if="cartrender=='true'">Корзина (список товаров к покупке:)</h2>
+            <div class="cart-list" v-if="cartrender=='true'">
+                    <div class="cart-list-wraper">
+                        <div class="goods-item-basket" v-for="good in cartgoods">
+                            <img :src="'img/'+good.id_product+'.jpg'">
+                            <h3>{{ good.product_name }}</h3>
+                            <p>{{ good.price }}</p>
+                            <button @click="cartRemove(good.product_name, good.price, good.id_product)">Del</button>
+                        </div>
+                        <span class="cart-list-summ">Итого сумма: {{ summ }} р.</span>
+                    </div>
+            </div>
+        </main>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
