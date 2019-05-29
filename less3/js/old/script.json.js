@@ -39,8 +39,13 @@ const async = (a) => {
     })
 }
 
+let ccc;
 async(5).then((b) => {
     console.log(b)
+    ccc=b;
 }).catch((err)=> {
     console.error(err);
 })
+
+setTimeout(2000);
+console.log("aaa = " +ccc);

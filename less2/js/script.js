@@ -85,3 +85,4 @@ const list = new GoodsList();
 list.fetchGoods();
 list.render();
 list.summGoods();
+console.log(document.querySelector('.goods-item'));
