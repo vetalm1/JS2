@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--не забывай долбаный вьюпорт, нужен при адаптиве-->
+    <title>eShop</title>
+    <link rel="stylesheet" href="css/normalize.css"> <!--сначала нормалайз-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <header class="main-menu">
+
+            <search @submit="filterGoods"></search>  
+
+            <button class="cart-button" @click="showCart">Корзина ({{counter}})</button>    
+        </header>
+        <main>
+            <goods-list :goods="filteredGoods" @cart-add="cartAdd"></goods-list>
+            <cart v-if="isVisibleCart" :goods="cartgoods" @cart-remove="cartRemove" @close="hideCart"></cart>
+        </main>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

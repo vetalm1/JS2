@@ -11,6 +11,11 @@ const app = new Vue({
         counter: 0,
         summ: 0
     },
+    computed: {
+        noData() {
+            return this.filteredGoods.length === 0;
+        }
+    },
     methods: {
         makeGETRequest (url) {
             return new Promise(function (resolve, reject) {
@@ -31,8 +36,8 @@ const app = new Vue({
                 xhr.send();
             })
         },
-        filterGoods(value) {
-            const regexp = new RegExp(value, "i")
+        filterGoods() {
+            const regexp = new RegExp(this.searchLine, "i")
             console.log(regexp);
             this.filteredGoods = this.goods;
             this.filteredGoods = this.filteredGoods.filter(good =>  regexp.test(good.product_name));
