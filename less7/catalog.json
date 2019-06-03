@@ -1,0 +1,22 @@
+[
+    {
+        "product_name": "Чашка",
+        "price": 100,
+        "id_product": 123
+    },
+    {
+        "product_name": "Светильник",
+        "price": 200,
+        "id_product": 456
+    },
+    {
+        "product_name": "Лампа",
+        "price": 50,
+        "id_product": 789 
+    },
+    {
+        "product_name": "Лампа-LED",
+        "price": 150,
+        "id_product": 7810
+    }
+]
