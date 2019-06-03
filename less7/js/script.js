@@ -164,7 +164,7 @@ const app = new Vue({
             this.summ +=price;
             console.log(this.cartgoods);
             this.makePOSTRequest(`/addToCart`, massElem).then((data) => {
-                console.log(data);
+            //    console.log(data);
             });
         },
         cartRemove(name, price, id) {
@@ -173,7 +173,7 @@ const app = new Vue({
             this.counter -=1;
             this.summ -=price;
             this.makePOSTRequest(`/removeFromCart`, index).then((data) => {
-                console.log(data);
+           //     console.log(data);
             });
         }
     },
