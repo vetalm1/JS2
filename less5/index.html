@@ -11,12 +11,14 @@
 <body>
     <div id="app">
         <header class="main-menu">
-            <input class="goods-search" type="text" v-model="searchLine">
-            <button class="search-button" @click="filterGoods(searchLine)" >Искать</button>    
+            <form  @submit.prevent="filterGoods(searchLine)"><!--превент -чтобы форма не перезагружала страницу-->
+                <input class="goods-search" type="text" v-model.trim="searchLine"> <!--трим убирает пробелы спереди и сзади-->
+                <button type="submit" class="search-button">Искать</button>
+            </form>    
             <button class="cart-button" @click="cartrender='true'">Корзина ({{counter}})</button>    
-        </header>
+        </header> <!--@click="cartrender='true'" лучше вынести в JS отдельными функциями-->
         <main>
-            <div v-if="goods==[]">Нет данных</div>
+            <div v-if="noData">Нет данных</div>
             <div class="goods-list">
                 <div class="goods-item" v-for="good in filteredGoods">
                     <img :src="'img/'+good.id_product+'.jpg'">
@@ -39,6 +41,7 @@
                             <button @click="cartRemove(good.product_name, good.price, good.id_product)">Del</button>
                         </div>
                         <span class="cart-list-summ">Итого сумма: {{ summ }} р.</span>
+                        <span class="close" @click="cartrender='false'">Закрыть</span>
                     </div>
             </div>
         </main>
